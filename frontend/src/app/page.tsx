@@ -1,4 +1,5 @@
 'use client'
+import Filters from '@/components/filters/Filters'
 import ProductGrid from '@/components/product-grid/ProductGrid'
 import ProductPagination from '@/components/product-pagination/ProductPagination'
 import useProducts from '@/hooks/useProducts'
@@ -18,7 +19,14 @@ export default function Home() {
 	return (
 		<main className=' bg-[rgb(244,246,250)]'>
 			<div className='container py-20'>
-				<ProductGrid products={products || []} />
+				<div className='grid grid-cols-5 gap-4 items-start'>
+					<Filters products={products || []} />
+					<ProductGrid
+						products={
+							products?.slice((currentPage - 1) * 12, currentPage * 12) || []
+						}
+					/>
+				</div>
 				<ProductPagination totalPages={totalPages} currentPage={currentPage} />
 			</div>
 		</main>

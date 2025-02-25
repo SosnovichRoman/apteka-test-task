@@ -5,6 +5,18 @@ export default function useProducts() {
 	const { data, isLoading, isError } = useQuery({
 		queryKey: ['products'],
 		queryFn: async () => await productService.getAll(),
+		select: (data) =>
+			data?.data.map((v) => ({
+				...v,
+				characteristics: {
+					...v.characteristics,
+					quantityPerPackage:
+						v.characteristics.quantityPerPackage.toString() + ' шт',
+					isByPrescription: v.characteristics.isByPrescription
+						? 'По рецепту'
+						: 'Без рецепта',
+				},
+			})),
 	})
-	return { products: data?.data, isLoading, isError }
+	return { products: data, isLoading, isError }
 }
