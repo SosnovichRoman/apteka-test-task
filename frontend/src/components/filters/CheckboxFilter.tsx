@@ -20,7 +20,9 @@ export default function CheckboxFilter({
 	const deleteCheckboxFilter = useFilterStore(
 		(state) => state.deleteCheckboxFilter
 	)
-	const checkedValues = useFilterStore((state) => state[checkboxFilter.key])
+	const checkedValues = useFilterStore(
+		(state) => state.checkboxFilters[checkboxFilter.key]
+	)
 
 	return (
 		<div className='py-4 border-t-[1px]'>
