@@ -1,46 +1,7 @@
-import { CheckboxFilterType } from '@/types/filter.types'
 import { ProductType } from '@/types/product.types'
 import FilterCheckbox from './CheckboxFilter'
 import PriceFilter from './PriceFilter'
-
-const checkboxFilters: CheckboxFilterType[] = [
-	{
-		name: 'Бренд',
-		key: 'brand',
-	},
-	{
-		name: 'Форма выпуска',
-		key: 'releaseForm',
-	},
-	{
-		name: 'Дозировка',
-		key: 'dossage',
-	},
-	{
-		name: 'Количество в упаковке',
-		key: 'quantityPerPackage',
-	},
-	{
-		name: 'Страна производства',
-		key: 'country',
-	},
-	{
-		name: 'Температура хранения',
-		key: 'storageTemperature',
-	},
-	{
-		name: 'Срок годности',
-		key: 'expirationDate',
-	},
-	{
-		name: 'Рецептурный отпуск',
-		key: 'isByPrescription',
-	},
-	{
-		name: 'Производитель',
-		key: 'manufacturer',
-	},
-]
+import { checkboxFilters } from './constants'
 
 export default function Filters({ products }: { products: ProductType[] }) {
 	return (

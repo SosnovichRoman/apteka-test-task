@@ -1,25 +1,21 @@
-import { CheckboxFilterType } from '@/types/filter.types'
+import { ProductType } from '@/types/product.types'
 import { create } from 'zustand'
 
 type FilterStore = {
 	minPrice?: number
 	maxPrice?: number
-	checkboxFilters: {
-		country: string[]
-		brand: string[]
-		dossage: string[]
-		releaseForm: string[]
-		storageTemperature: string[]
-		quantityPerPackage: string[]
-		expirationDate: string[]
-		isByPrescription: string[]
-		manufacturer: string[]
-	}
+	checkboxFilters: Record<keyof ProductType['characteristics'], string[]>
 
 	setMinPrice: (value: number | undefined) => void
 	setMaxPrice: (value: number | undefined) => void
-	addCheckboxFilter: (key: CheckboxFilterType['key'], value: string) => void
-	deleteCheckboxFilter: (key: CheckboxFilterType['key'], value: string) => void
+	addCheckboxFilter: (
+		key: keyof ProductType['characteristics'],
+		value: string
+	) => void
+	deleteCheckboxFilter: (
+		key: keyof ProductType['characteristics'],
+		value: string
+	) => void
 	resetStore: () => void
 }
 
@@ -42,7 +38,10 @@ const useFilterStore = create<FilterStore>()((set) => ({
 		set((state) => ({ ...state, minPrice: value })),
 	setMaxPrice: (value: number | undefined) =>
 		set((state) => ({ ...state, maxPrice: value })),
-	addCheckboxFilter: (key: CheckboxFilterType['key'], value: string) =>
+	addCheckboxFilter: (
+		key: keyof ProductType['characteristics'],
+		value: string
+	) =>
 		set((state) => ({
 			...state,
 			checkboxFilters: {
@@ -50,7 +49,10 @@ const useFilterStore = create<FilterStore>()((set) => ({
 				[key]: [...state.checkboxFilters[key], value],
 			},
 		})),
-	deleteCheckboxFilter: (key: CheckboxFilterType['key'], value: string) =>
+	deleteCheckboxFilter: (
+		key: keyof ProductType['characteristics'],
+		value: string
+	) =>
 		set((state) => ({
 			...state,
 			checkboxFilters: {

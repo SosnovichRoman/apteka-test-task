@@ -1,25 +1,6 @@
-export type FiltersType = {
-	country?: string[]
-	brand?: string[]
-	dossage?: string[]
-	releaseForm?: string[]
-	storageTemperature?: string[]
-	quantityPerPackage?: string[]
-	expirationDate?: string[]
-	isByPrescription?: boolean[]
-	manufacturer?: string[]
-}
+import { ProductType } from './product.types'
 
 export type CheckboxFilterType = {
 	name: string
-	key:
-		| 'country'
-		| 'brand'
-		| 'dossage'
-		| 'releaseForm'
-		| 'storageTemperature'
-		| 'quantityPerPackage'
-		| 'expirationDate'
-		| 'isByPrescription'
-		| 'manufacturer'
+	key: keyof ProductType['characteristics']
 }
