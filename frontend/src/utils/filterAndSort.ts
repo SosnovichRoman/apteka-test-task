@@ -31,7 +31,7 @@ export default function filterAndSort({
 			if (
 				filterGroups[i].values.length > 0 &&
 				!filterGroups[i].values.includes(
-					product.characteristics[filterGroups[i].key]
+					product.characteristics[filterGroups[i].key] || ''
 				)
 			)
 				return false

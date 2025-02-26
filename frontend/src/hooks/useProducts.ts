@@ -10,8 +10,9 @@ export default function useProducts() {
 				...v,
 				characteristics: {
 					...v.characteristics,
-					quantityPerPackage:
-						v.characteristics.quantityPerPackage.toString() + ' шт',
+					quantityPerPackage: v.characteristics.quantityPerPackage
+						? v.characteristics.quantityPerPackage.toString() + ' шт'
+						: undefined,
 					isByPrescription: v.characteristics.isByPrescription
 						? 'По рецепту'
 						: 'Без рецепта',

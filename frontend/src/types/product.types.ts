@@ -4,15 +4,15 @@ export type ProductServerType = {
 	price: number
 	image: string
 	characteristics: {
-		country: string
-		brand: string
-		dossage: string
-		releaseForm: string
-		storageTemperature: string
-		quantityPerPackage: number
-		expirationDate: string
-		isByPrescription: boolean
-		manufacturer: string
+		country?: string
+		brand?: string
+		dossage?: string
+		releaseForm?: string
+		storageTemperature?: string
+		quantityPerPackage?: number
+		expirationDate?: string
+		isByPrescription?: boolean
+		manufacturer?: string
 	}
 }
 
@@ -22,14 +22,14 @@ export type ProductType = {
 	price: number
 	image: string
 	characteristics: {
-		country: string
-		brand: string
-		dossage: string
-		releaseForm: string
-		storageTemperature: string
-		quantityPerPackage: string
-		expirationDate: string
-		isByPrescription: string
-		manufacturer: string
+		country?: string
+		brand?: string
+		dossage?: string
+		releaseForm?: string
+		storageTemperature?: string
+		quantityPerPackage?: string
+		expirationDate?: string
+		isByPrescription?: string
+		manufacturer?: string
 	}
 }
