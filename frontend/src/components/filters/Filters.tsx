@@ -1,6 +1,7 @@
 import { CheckboxFilterType } from '@/types/filter.types'
 import { ProductType } from '@/types/product.types'
 import FilterCheckbox from './CheckboxFilter'
+import PriceFilter from './PriceFilter'
 
 const checkboxFilters: CheckboxFilterType[] = [
 	{
@@ -44,6 +45,7 @@ const checkboxFilters: CheckboxFilterType[] = [
 export default function Filters({ products }: { products: ProductType[] }) {
 	return (
 		<div className='p-3 rounded-[8px] bg-white'>
+			<PriceFilter products={products} />
 			{checkboxFilters.map((checkboxFilter) => (
 				<FilterCheckbox
 					key={checkboxFilter.key}
